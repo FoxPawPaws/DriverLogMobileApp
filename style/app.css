@@ -53,6 +53,20 @@ a{
   display:inline-block;
 }
 
+.dashButton{
+	margin:0 auto;
+	margin-bottom:20px;
+	display:block;
+	width:160px;
+}
+
+.dashButton button{
+	margin:0 auto;
+	margin-bottom:20px;
+	display:block;
+	width:160px;
+}
+
 .button{
 transition:0.3s;
 }

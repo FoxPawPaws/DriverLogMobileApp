@@ -26,9 +26,10 @@ function loginForm() {
 		var token = success['access_token'];
 		//console.log(token);
 		localStorage['token'] = token;
-		window.location.href = "profile.html";
+		window.location.href = "dashboard.html";
 	},function (error){
-		console.error(error)
+		
+		alert(JSON.parse(error.responseText).message + " " + JSON.parse(error.responseText).hint);
 	})
 }
 //Register Form
@@ -154,6 +155,8 @@ function pagePermissions() {
 		}
 	}else{
 		if(pageName == "profile.html"){
+			window.location.href = "index.html";
+		}else if(pageName =="dashboard.html"){
 			window.location.href = "index.html";
 		}else{
 			console.log("Correct Page")
