@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Driver Log</title>
+		<script src="script/jquery.min.js"></script>
+		<!--bootstrap css minified-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+		crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+		crossorigin="anonymous">
+		<!--app css-->
+		<link rel="stylesheet" href="style/app.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+		crossorigin="anonymous"></script>
+		<script src="cordova.js"></script>
+		<script src="script/app.js"></script>
+		<script src="script/userFunction.js"></script>
+	</head>
+	<body class="noScroll">
+        <div id="wrap" class="noScroll">
+			<!--HEADER START-->
+			<header>
+				<nav>
+					<a id="logoLink" href="index.html"><img id="logo" src="img/logo.png" src="DriverLog Logo"></a>
+					<div class="links">
+						<a href="index.html" class="button">Home</a>
+						<a class="button loggedIn" href="dashboard.html">Dashboard</a>
+						<a href="#" class="button loggedIn" onClick="logOut()">Logout</a>
+						<a class="button loggedOut" href="login.html">Login</a>
+						<a class="button loggedOut" href="register.html">Register</a>
+						<a href="#" class="smlink button"><img src="img/fb_logo.png" alt="Facebook Logo"></a>
+						<a href="#" class="smlink button"><img src="img/insta_logo.png" alt="Instagram Logo"></a>
+						<a href="#" class="smlink button"><img src="img/twitter_logo.png" alt="Twitter Logo"></a>
+					</div>
+				</nav>
+			</header>
+			<!--HEROSHOT START-->
+          <section id="heroShot">
+            <div id="heroDesc">
+              <h1>GET THE MOST<br>OUT OF YOUR VEHICLE</h1>
+              <p>Simple, nice and user-friendly application of your vehicle and its history. <br>Only useful information!</p>
+              <a href="#"><img class="button" src="img/appStore.png" alt="App Store Link"></a>
+              <a href="#"><img class="button" src="img/googlePlay.png" alt="Google Play Link"></a>
+            </div>
+            <img src="img/heroImage.png" alt="Hero Image" id="heroImg">
+          </section>
+          <!--FEATURES START-->
+          <section id="features">
+            <div id="halfCircle"></div>
+            <h2>PERFECT FEATURES</h2>
+            <p>Only the necessities</p>
+            <ul>
+              <li>
+                <img src="img/drivingRange.png" alt="Driving Range Graphic">
+                <div>
+                  <h3>DRIVING RANGE</h3>
+                  <p>Keep track of your cars driving history and driving range</p>
+                </div>
+              </li>
+              <li>
+                <img src="img/maintenance.png" alt="Maintenance Graphic">
+                <div>
+                  <h3>MAINTENANCE</h3>
+                  <p>Keep track of your cars maintenance and repair history</p>
+                </div>
+              </li>
+              <li>
+                <img src="img/expenses.png" alt="Expenses Graphic">
+                <div>
+                  <h3>EXPENSES</h3>
+                  <p>Track your spending on gas, repairs, and more</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <!--DOWNLOAD START-->
+          <section id="download">
+            <div>
+              <h1>HOW TO DOWNLOAD THE APP?</h1><br>
+              <p>Just download the app from the Apple App Store or Google Play Store!<br>Simple, nice, and user-friendly application for you and your vehicle.</p>
+            </div>
+          </section>
+			<footer>
+			<p>Copyright ©2017 Driver Log</p>
+			</footer>
+		</div>
+    </body>
+</html>
