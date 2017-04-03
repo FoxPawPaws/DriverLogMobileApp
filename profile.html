@@ -49,187 +49,22 @@
             <div id="formWrap">
                 <div class="col-lg-6 col-md-12">
                   <h1>VEHICLES</h1>
-                      <div class="col-md-12">
-                        
-                      </div>
-                    <form class="form-horizontal" role="form" action="/vehicle/create" method="POST">
-
-                        <div class="form-group">
-                            <label for="model" class="col-md-2 control-label">Model</label>
-
-                            <div class="col-md-8">
-                                <input id="model" type="text" class="form-control" name="model" required>
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="make" class="col-md-2 control-label">Make</label>
-
-                            <div class="col-md-8">
-                                <input id="make" type="text" class="form-control" name="make" value="" required>
-
-                               
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="colour" class="col-md-2 control-label">Colour</label>
-
-                            <div class="col-md-8">
-                                <input id="colour" type="text" class="form-control" name="colour" required>
-
-                               
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="year" class="col-md-2 control-label">Year</label>
-
-                            <div class="col-md-8">
-                                <input id="year" type="text" class="form-control" name="year" required>
-
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="plate" class="col-md-2 control-label">Plate</label>
-
-                            <div class="col-md-8">
-                                <input id="plate" type="text" class="form-control" name="license_plate" required>
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="vinNum" class="col-md-2 control-label">VIN Number</label>
-
-                            <div class="col-md-8">
-                                <input id="vinNum" type="text" class="form-control" name="VIN" required>
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-                          <div class="col-md-8">
-                          </div>
-                        
-                        <div class="form-group">
-                            <div class="col-md-4 col-md-offset-6">
-                                <button type="submit" class="btn btn-primary" onClick="vehicleForm()">
-                                    Add Vehicle
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+                        <h4>Model:</h4><h4 class="model"></h4><br>
+						<h4>Make:</h4><h4 class="make"></h4><br>
+						<h4>Colour:</h4><h4 class="colour"></h4><br>
+						<h4>Year:</h4><h4 class="year"></h4><br>
+						<h4>Plate:</h4><h4 class="plate"></h4><br>
+						<h4>Vin Number:</h4><h4 class="vinNum"></h4><br>
+					</div>
 
                 <div class="col-lg-6 col-md-12">
                   <h1 class="text-left">PERSONAL</h1>
-                    <form class="form-horizontal" role="form" action="/user/update" method="POST">
-
-                        <div class="form-group">
-                            <label for="name" class="col-md-2 control-label">Name</label>
-
-                            <div class="col-md-8">
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="address" class="col-md-2 control-label">Home Address</label>
-
-                            <div class="col-md-8">
-                                <input id="address" type="text" class="form-control" name="address" value="" required>
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="city" class="col-md-2 control-label">City</label>
-
-                            <div class="col-md-8">
-                                <input id="city" type="text" class="form-control" name="city" value="" required>
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="province" class="col-md-2 control-label">Province</label>
-
-                            <div class="col-md-8">
-                                <input id="province" type="text" class="form-control" name="province" value="" required>
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="postal" class="col-md-2 control-label">Postal Code</label>
-
-                            <div class="col-md-8">
-                                <input id="postal" type="text" class="form-control" name="postal_code" value="" required>
-
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="country" class="col-md-2 control-label">Country</label>
-
-                            <div class="col-md-8">
-                                <input id="country" type="text" class="form-control" name="country" value="" required>
-
-                                    <span class="help-block">
-                                        <strong></strong>
-                                    </span>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-4 col-md-offset-6">
-                                <button type="submit" class="btn btn-primary" onClick="profileForm()">
-                                    Update Personal
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <h4>Name:</h4><h4 id="name"></h4><br>
+					<h4>Address:</h4><h4 id="address"></h4><br>
+					<h4>City:</h4><h4 id="city"></h4><br>
+					<h4>Province:</h4><h4 id="province"></h4><br>
+					<h4>Postal Code:</h4><h4 id="postal"></h4><br>
+					<h4>Country:</h4><h4 id="country"></h4><br>
                 </div>
             </div>
           </div>

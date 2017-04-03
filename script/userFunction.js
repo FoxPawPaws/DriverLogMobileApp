@@ -55,7 +55,7 @@ function registerForm() {
 			var token = success['access_token'];
 			//console.log(token);
 			localStorage['token'] = token;
-			window.location.href = "profile.html";
+			window.location.href = "editProfile.html";
 		},function (error){
 			console.error(error)
 		})
@@ -106,8 +106,43 @@ function navCheck() {
 		$(".loggedOut").show();
 	}
 }
-//Get Vehicle Info
+//Get Profile Info
 function getProfile() {
+	var token = "Bearer "+localStorage['token'];
+	console.log(token);
+	
+	$.ajaxSetup({
+		beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', token);
+		}
+	});
+	
+	$.get("http://appproject.ben-littleton.com/api/user").then(function (success){
+			console.log(success);
+			$("#name").html(success.name);
+			$("#address").html(success.address);
+			$("#city").html(success.city);
+			$("#province").html(success.province);
+			$("#postal").html(success.postal_code);
+			$("#country").html(success.country);
+		},function (error){
+			console.error(error)
+		});
+		
+	$.get("http://appproject.ben-littleton.com/api/user/vehicles").then(function (success){
+			console.log(success);
+			$(".model").html(success[0].model);
+			$(".make").html(success[0].make);
+			$(".colour").html(success[0].colour);
+			$(".year").html(success[0].year);
+			$(".plate").html(success[0].license_plate);
+			$(".vinNum").html(success[0].VIN);
+		},function (error){
+			console.error(error)
+		});
+}
+//Get Profile Info for edit page
+function getEditProfile() {
 	var token = "Bearer "+localStorage['token'];
 	console.log(token);
 	
@@ -130,7 +165,7 @@ function getProfile() {
 		});
 		
 	$.get("http://appproject.ben-littleton.com/api/user/vehicles").then(function (success){
-			console.log(success[0]);
+			console.log(success);
 			$("#model").val(success[0].model);
 			$("#make").val(success[0].make);
 			$("#colour").val(success[0].colour);
@@ -147,16 +182,18 @@ function pagePermissions() {
 	
 	if(typeof(localStorage['token']) != "undefined" && localStorage['token'] !== null){
 		if(pageName == "login.html"){
-			window.location.href = "profile.html";
+			window.location.href = "editProfile.html";
 		}else if(pageName == "register.html"){
-			window.location.href = "profile.html";
+			window.location.href = "editProfile.html";
 		}else{
 			console.log("Correct Page")
 		}
 	}else{
-		if(pageName == "profile.html"){
+		if(pageName == "editProfile.html"){
 			window.location.href = "index.html";
 		}else if(pageName =="dashboard.html"){
+			window.location.href = "index.html";
+		}else if(pageName =="profile.html"){
 			window.location.href = "index.html";
 		}else{
 			console.log("Correct Page")
@@ -171,7 +208,9 @@ $( document ).ready(function() {
 	var pageName = document.location.href.match(/[^\/]+$/)[0];
 	
 	if(typeof(localStorage['token']) != "undefined" && localStorage['token'] !== null){
-		if(pageName == "profile.html"){
+		if(pageName == "editProfile.html"){
+			getEditProfile();
+		}else if(pageName == "profile.html"){
 			getProfile();
 		}
 	}

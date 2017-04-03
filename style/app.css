@@ -44,6 +44,12 @@ h2{
   font-weight: 700;
 }
 
+h4{
+	display:inline-block;
+	padding-right:20px;
+	min-width:140px;
+}
+
 img{
 user-drag: none;
 -webkit-user-drag: none;
