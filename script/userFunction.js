@@ -28,7 +28,6 @@ function loginForm() {
 		localStorage['token'] = token;
 		window.location.href = "dashboard.html";
 	},function (error){
-		
 		alert(JSON.parse(error.responseText).message + " " + JSON.parse(error.responseText).hint);
 	})
 }
@@ -74,20 +73,26 @@ function profileForm() {
 		city: $("#city").val(),
 		address: $("#address").val(),
 		postal_code: $("#postal").val()
-	})
+	}).then(
+	response => alert("Your profile was edited!"), 
+	error => console.log(error)
+	)
 }
-//profile Form
+//vehicle Form
 function vehicleForm() {
 	event.preventDefault();
 		
-	$.post('http://appproject.ben-littleton.com/api/user/create',{
+	$.post('http://appproject.ben-littleton.com/api/vehicle/create',{
 		make: $("#make").val(),
 		model: $("#model").val(),
 		year: $("#year").val(),
 		colour: $("#colour").val(),
 		license_plate: $("#plate").val(),
 		VIN: $("#vinNum").val()
-	})
+	}).then(
+	response => alert("Your vehicle was created!"), 
+	error => console.log(error)
+	)
 }
 // vehicle Id
 function setRecordId() {
@@ -122,16 +127,20 @@ function recordsForm() {
 	});
 	
 	var totalDistance = $("#start").val() - $("#end").val();
-	var vId = "'http://appproject.ben-littleton.com/api/user/vehicles/"+$("#vId").html()+"/stat'";
+	var vId = "http://appproject.ben-littleton.com/api/user/vehicles/"+$("#vId").html()+"/stat";
 	console.log(vId);
 		
-	$.post("http://appproject.ben-littleton.com/api/user/vehicles/4/stat",{
+	$.post(vId,{
 		litres_of_fuel_used: $("#fuel").val(),
 		odo_start: $("#start").val(),
 		odo_end: $("#end").val(),
 		meters_travelled: -(totalDistance)
-	})
-	window.location.href = "listview.html";
+	}).then(
+	response => window.location.href = "listview.html", 
+	error => console.log(error)
+	)
+	//window.location.href = "listview.html";
+	
 }
 
 //get the records
