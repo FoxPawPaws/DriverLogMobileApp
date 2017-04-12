@@ -42,35 +42,24 @@
 					</div>
 				</nav>
 			</header>
-			<div id="profileImg"><img src="img/profileDefault.jpg" alt="Profile Image"></div>
+			<div id="profileImgcolor"><div id="profileImg"><img src="img/profileDefault.jpg" alt="Profile Image"></div></div>
       <div id="top"></div>
       <section id="formContainer">
         <div id="halfCircle"></div>
-            <div class="panel">
-                <h1>Dashboard</h1>
-                
-                            <a class="dashButton" href="profile.html">
-								<button class="btn btn-primary">
-                                    My Profile
-                                </button>
-							</a><br>
-							<a class="dashButton" href="editProfile.html">
-								<button class="btn btn-primary">
-                                    Edit Profile
-                                </button>
-							</a><br>
-							<a class="dashButton" href="addRecords.html">
-								<button class="btn btn-primary">
-                                    Add Records
-                                </button>
-							</a><br />
-                          	<a class="dashButton" href="listview.html">
-								<button class="btn btn-primary">
-                                    Records Listing
-                                </button>
-							</a>
-                           
-                </div>
+            <div id="formWrap">
+                <div class="col-lg-6 col-md-12">
+									  <h1>RECORDS</h1>
+									<table id="list">
+										<tr>
+											<th>#</th>
+											<th>Date</th>
+											<th>Fuel</th>
+											<th>Start</th>
+											<th>end</th>
+											<th>total</th>
+										</tr>
+									</table>
+				</div> 
             </div>
           </div>
           </section>
@@ -79,4 +68,5 @@
 			</footer>
 		</div>
     </body>
+	<head><link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"></head>
 </html>

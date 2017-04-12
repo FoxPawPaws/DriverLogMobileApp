@@ -50,6 +50,16 @@ h4{
 	min-width:140px;
 }
 
+table{
+	border:solid thin #FFF;
+}
+
+th, td{
+	border:solid thin #FFF;
+	padding-right:3px;
+	padding-left:3px;
+}
+
 img{
 user-drag: none;
 -webkit-user-drag: none;

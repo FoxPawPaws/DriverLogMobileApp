@@ -89,6 +89,84 @@ function vehicleForm() {
 		VIN: $("#vinNum").val()
 	})
 }
+// vehicle Id
+function setRecordId() {
+	var token = "Bearer "+localStorage['token'];
+	console.log(token);
+	
+	$.ajaxSetup({
+		beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', token);
+		}
+	});
+	$.get("http://appproject.ben-littleton.com/api/user/vehicles").then(function (success){
+			console.log(success);
+			$("#vId").html(success[0].id);
+		},function (error){
+			console.error(error)
+		});
+	
+}
+// add records
+function recordsForm() {
+	console.log("here is the form");
+	event.preventDefault();
+	
+	var token = "Bearer "+localStorage['token'];
+	console.log(token);
+	
+	$.ajaxSetup({
+		beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', token);
+		}
+	});
+	
+	var totalDistance = $("#start").val() - $("#end").val();
+	var vId = "'http://appproject.ben-littleton.com/api/user/vehicles/"+$("#vId").html()+"/stat'";
+	console.log(vId);
+		
+	$.post("http://appproject.ben-littleton.com/api/user/vehicles/4/stat",{
+		litres_of_fuel_used: $("#fuel").val(),
+		odo_start: $("#start").val(),
+		odo_end: $("#end").val(),
+		meters_travelled: -(totalDistance)
+	})
+	window.location.href = "listview.html";
+}
+
+//get the records
+function getRecords() {
+	var token = "Bearer "+localStorage['token'];
+	console.log(token);
+	
+	$.ajaxSetup({
+		beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', token);
+		}
+	});
+		
+	$.get("http://appproject.ben-littleton.com/api/user/vehicles").then(function (success){
+			
+		for(i=0; i < (success[0].vehicle_stats).length; i++){
+				
+			var	$div = $("<tr>").addClass("")
+			.append($("<td>").text(i+1))
+			.append($("<td>").text(success[0].vehicle_stats[i].created_at))
+			.append($("<td>").text(success[0].vehicle_stats[i].litres_of_fuel_used+" l"))
+			.append($("<td>").text(success[0].vehicle_stats[i].odo_start+" m"))
+			.append($("<td>").text(success[0].vehicle_stats[i].odo_end+" m"))
+			.append($("<td>").text(success[0].vehicle_stats[i].meters_travelled+" m"))
+		;
+		
+		$("#list").append($div);
+				
+		}	
+			
+		},function (error){
+			console.error(error)
+		});
+}
+
 //Log Out
 function logOut() {
 	event.preventDefault();
@@ -195,6 +273,8 @@ function pagePermissions() {
 			window.location.href = "index.html";
 		}else if(pageName =="profile.html"){
 			window.location.href = "index.html";
+		}else if(pageName =="addRecords.html"){
+			window.location.href = "index.html";
 		}else{
 			console.log("Correct Page")
 		}
@@ -212,6 +292,10 @@ $( document ).ready(function() {
 			getEditProfile();
 		}else if(pageName == "profile.html"){
 			getProfile();
+		}else if(pageName == "listview.html"){
+			getRecords();
+		}else if(pageName == "addRecords.html"){
+			setRecordId();
 		}
 	}
 });
